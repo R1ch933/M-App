@@ -16,12 +16,6 @@ import json
 from kivy.uix.label import Label
 import os
 from functools import partial
-from kivy.core.window import Window
-
-kivy.require('1.9.0')
-
-Window.size = (500, 900)
-
 
 
 class Start(Screen):
@@ -439,10 +433,20 @@ class Acc_Set(Screen):
                     account_counter = json.load(f)
                 with open(f'./{account_counter}/Passwrd.json') as f:
                     old_password = json.load(f)
-                print(self.old_input.text, self.new_input.text)
                 if self.old_input.text == old_password:
                     with open(f'./{account_counter}/Passwrd.json', 'w') as f:
                         json.dump(self.new_input.text, f)
+                        print(self.old_input.text, self.new_input.text)
+                    with open('account_list.json') as acc_list:
+                        account_list = json.load(acc_list)
+                    print(account_list)
+                    w = account_list[account_counter]
+                    w[1] = self.new_input.text
+                    account_list[account_counter] = w
+                    with open('account_list.json', 'w') as f:
+                        json.dump(account_list, f)
+
+
                     self.popup.dismiss()
                 elif self.old_input.text != old_password:
                     self.old_input.text = ''

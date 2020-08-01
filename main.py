@@ -16,6 +16,15 @@ import json
 from kivy.uix.label import Label
 import os
 from functools import partial
+import kivy
+kivy.require('1.9.0')
+
+from kivy.config import Config
+Config.set('graphics', 'width', '450')
+Config.set('graphics', 'height', '950')
+Config.set('graphics', 'position', 'custom')
+Config.set('graphics', 'top', '50')
+Config.set('graphics', 'left', '500')
 
 
 class Start(Screen):
@@ -90,12 +99,12 @@ class Start(Screen):
 
         def wrong_popup(self):
             show = self.wrong_login()
-            wrong_login_popup = Popup(title='', content=show, size_hint=(None, None), size=(400, 200))
+            wrong_login_popup = Popup(title='', content=show, size_hint=(.8, .2))
             wrong_login_popup.open()
 
         def existing(self):
             show = self.account_exists()
-            acc = Popup(title='', content=show, size_hint=(None, None), size=(400, 200))
+            acc = Popup(title='', content=show, size_hint=(.8, .2))
             acc.open()
         def clear_text(self):
             self.username.text = ''
@@ -216,13 +225,13 @@ class Create_Screen(Screen):
                 with open(f'./{folder}/log_lists.json', 'w') as f:
                     json.dump(empty_list, f)
                 show_create_successful = self.creation_made()
-                create_yes = Popup(title='', content=show_create_successful, size_hint=(None, None), size=(400, 200))
+                create_yes = Popup(title='', content=show_create_successful, size_hint=(.8, .2))
                 create_yes.open()
                 self.clear_text()
                 return True
             elif self.create_username.text == '' or self.create_password.text == '':  # renders popup for when an account is created
                 show = self.blank_login()
-                blank = Popup(title='', content=show, size_hint=(None, None), size=(400, 200))
+                blank = Popup(title='', content=show, size_hint=(.8, .2))
                 blank.open()
                 return False
 
@@ -282,7 +291,7 @@ class Create_Log(Screen):
 
         def log_popup(self):  # renders popup when a log is saved
             show = self.log_save_popup()
-            popup_log = Popup(title='', content=show, size_hint=(None, None), size=(400, 200))
+            popup_log = Popup(title='', content=show, size_hint=(.8, .2))
             popup_log.open()
 
 
@@ -370,7 +379,7 @@ class Log_Screen(Screen):
 
         def log_zero(self):  # renders popup of 0 widgets in the log view
             show = self.No_Logs_Popup()
-            create_no_logs_popup = Popup(title='', content=show, size_hint=(None, None), size=(400, 200))
+            create_no_logs_popup = Popup(title='', content=show, size_hint=(.8, .2))
             create_no_logs_popup.open()
 
         def delete_log(self, number):
@@ -412,7 +421,7 @@ class Log_Screen(Screen):
             show = self.are_you_sure()
             btn = Button(text="hello", size_hint=(.2,.2), pos_hint={"x":.25, "top": .3})
             btn.bind(on_press=partial(self.delete_log))
-            self.are_you_sure.show_popup = Popup(title='', content=(btn), size_hint=(None, None), size=(500, 200))
+            self.are_you_sure.show_popup = Popup(title='', content=(btn), size_hint=(.8, .2))
             self.are_you_sure.show_popup.open()
 
         pass
@@ -455,12 +464,12 @@ class Acc_Set(Screen):
 
             def wrong_pass_popup(self):
                 show = self.Wrong_Password()
-                show_popup = Popup(title='', content=show, size_hint=(None, None), size=(500, 200))
+                show_popup = Popup(title='', content=show, size_hint=(.8, .2))
                 show_popup.open()
 
             def empty_input(self):
                 show = self.Empty()
-                show_popup = Popup(title='', content=show, size_hint=(None, None), size=(500, 200))
+                show_popup = Popup(title='', content=show, size_hint=(.8, .2))
                 show_popup.open()
             pass
 
@@ -476,12 +485,12 @@ class Acc_Set(Screen):
 
         def delete_account_popup(self):
             show = self.Del_Acc()
-            self.Del_Acc.show_popup = Popup(title='', content=show, size_hint=(None, None), size=(500, 200))
+            self.Del_Acc.show_popup = Popup(title='', content=show, size_hint=(.8, .2))
             self.Del_Acc.show_popup.open()
 
         def change_password_popup(self):
             show = self.Change_Password()
-            self.Change_Password.popup = Popup(title='', content=show, size_hint=(None, None), size=(500, 400))
+            self.Change_Password.popup = Popup(title='', content=show, size_hint=(.8, .2))
             self.Change_Password.popup.open()
 
         pass

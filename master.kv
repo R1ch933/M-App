@@ -115,7 +115,7 @@ ScreenManager
         size: root.width*.7, root.height*.8
         pos: root.width*.15, root.height*.1
     Label:
-        font_size: 20
+
         canvas.before:
             Color:
                 rgba: .0,.0,.0,0
@@ -171,7 +171,7 @@ ScreenManager
         size: root.width*.7, root.height*.8
         pos: root.width*.15, root.height*.1
     Label:
-        font_size: 20
+
         canvas.before:
             Color:
                 rgba: .0,.0,.0,0
@@ -203,14 +203,14 @@ ScreenManager
         size: root.width *.5,root.height*.05
         pos: root.width*.25, root.height* .45
     Button:
-        font_size: 10
+
         text: "Create Log"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .3
         on_release:
             root.save_log()
     Button:
-        font_size: 10
+
         text: "Back"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .2
@@ -274,7 +274,6 @@ ScreenManager
         size: root.width*.7, root.height*.8
         pos: root.width*.15, root.height*.1
     Label:
-        font_size: 20
         canvas.before:
             Color:
                 rgba: .0,.0,.0,0
@@ -283,8 +282,8 @@ ScreenManager
                 size: self.size
         color: 0,0,0,1
         text: "Master Password App"
-        size: root.width*.3, root.height*.15
-        pos: root.width*.35, root.height*.7
+        size: root.width*.6, root.height*.15
+        pos: root.width*.2, root.height*.7
     Label:
         color: 0,0,0,1
         text: "Username"
@@ -306,7 +305,7 @@ ScreenManager
         size: root.width *.5,root.height*.05
         pos: root.width*.25, root.height* .45
     Button:
-        font_size: 10
+
         text: "Login"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .3
@@ -314,7 +313,7 @@ ScreenManager
             app.root.current = "main menu" if root.read_files_version_2() == True else "start"
             app.root.transition.direction = 'left'
     Button:
-        font_size: 10
+
         text: "Create Account"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .2
@@ -355,7 +354,7 @@ ScreenManager
         size: root.width*.7, root.height*.8
         pos: root.width*.15, root.height*.1
     Label:
-        font_size: 20
+
         canvas.before:
             Color:
                 rgba: .0,.0,.0,0
@@ -387,7 +386,7 @@ ScreenManager
         size: root.width *.5,root.height*.05
         pos: root.width*.25, root.height* .45
     Button:
-        font_size: 10
+
         text: "Create"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .3
@@ -395,7 +394,7 @@ ScreenManager
             app.root.current = "start" if root.save_account() == True else "create screen"
             app.root.transition.direction = 'left'
     Button:
-        font_size: 10
+
         text: "Back"
         size: root.width *.3,root.height*.05
         pos: root.width*.35, root.height* .2

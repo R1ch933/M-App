@@ -490,7 +490,7 @@ class Acc_Set(Screen):
 
         def change_password_popup(self):
             show = self.Change_Password()
-            self.Change_Password.popup = Popup(title='', content=show, size_hint=(.8, .2))
+            self.Change_Password.popup = Popup(title='', content=show, size_hint=(.8, .6))
             self.Change_Password.popup.open()
 
         pass
